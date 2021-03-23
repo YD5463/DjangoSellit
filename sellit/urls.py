@@ -3,6 +3,7 @@ from django.urls import path,include
 from rest_framework.documentation import include_docs_urls
 from rest_framework.schemas import get_schema_view
 from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -14,4 +15,4 @@ urlpatterns = [
         description="API for the BlogAPI",
         version="1.0.0"
     ), name='openapi-schema'),
-] # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
