@@ -19,12 +19,13 @@ class Listing(models.Model):
 	published_time = models.DateTimeField(default=timezone.now)
 
 	def __str__(self):
-		return self.name  # todo: change this print
+		return ListingImages.objects.get(listing_id=self.pk)
 
 
 class ListingImages(models.Model):
-	image = models.ImageField(upload_to="")
+	image = models.ImageField(upload_to="media/listings")
 	listing_id = models.ForeignKey(Listing,on_delete=models.CASCADE)
+	objects = models.Manager()
 
 	def __str__(self):
 		return str(self.image)
