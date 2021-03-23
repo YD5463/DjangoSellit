@@ -22,9 +22,3 @@ class ListingSerializer(serializers.ModelSerializer):
 			ListingImages.objects.create(listingid=image, **image)
 		return listing
 
-
-class CreateListingSerializer(serializers.ModelSerializer):
-	class Meta:
-		model = Listing
-		fields = ("name","category","price","description")
-

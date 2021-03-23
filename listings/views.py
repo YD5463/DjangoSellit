@@ -1,6 +1,6 @@
 from rest_framework import generics,viewsets,permissions
 from .models import Listing
-from .serializers import ListingSerializer,CreateListingSerializer
+from .serializers import ListingSerializer
 
 
 class ListingsList(generics.ListAPIView):
@@ -10,7 +10,7 @@ class ListingsList(generics.ListAPIView):
 
 
 class ListingsEdit(generics.UpdateAPIView):
-	pass
+	serializer_class = ListingSerializer
 
 
 class ListingsDetail(generics.RetrieveDestroyAPIView):
@@ -19,4 +19,4 @@ class ListingsDetail(generics.RetrieveDestroyAPIView):
 
 
 class ListingsCreate(generics.CreateAPIView):
-	serializer_class = CreateListingSerializer
+	serializer_class = ListingSerializer
